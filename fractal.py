@@ -166,6 +166,7 @@ def img2output(img, cmap=DEFAULT_COLORMAP, output=None, show=False):
     if show:
         pylab.imshow(img, cmap=cmap)
         pylab.show()
+    return
 
 
 def call_kw(func, kwargs):
@@ -178,7 +179,7 @@ def call_kw(func, kwargs):
 def exec_command(kwargs):
     """ Fractal command from a dictionary of keyword arguments (from CLI) """
     kwargs["img"] = call_kw(generate_fractal, kwargs)
-    call_kw(img2output, kwargs)
+    return call_kw(img2output, kwargs)
 
 
 def cli_parse_args(args=None, namespace=None):
